@@ -1,4 +1,4 @@
-package com.vti.blog_app;
+package com.vti.blogapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

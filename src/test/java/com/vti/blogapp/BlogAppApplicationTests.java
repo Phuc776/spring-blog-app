@@ -1,4 +1,4 @@
-package com.vti.blog_app;
+package com.vti.blogapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
