@@ -12,7 +12,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface CommentRepository
-        extends JpaRepository<Comment, Long> {
+        extends JpaRepository<Comment, String> {
     // 1. method name
     // Prefix: findBy, existsBy, countBy, deleteBy
     // VD: Lấy ra tất cả comment theo name
@@ -37,5 +37,5 @@ public interface CommentRepository
     void deleteByNameAndEmail(String name, String email);
 
     @Query(value = "SELECT * FROM comment WHERE id > ?1", nativeQuery = true)
-    Page<CommentDto> findByIdGreaterThan(Long id, Pageable pageable);
+    Page<CommentDto> findByIdGreaterThan(String id, Pageable pageable);
 }

@@ -15,7 +15,7 @@ public class Comment {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     @Column(name = "name", length = 50, nullable = false)
     private String name;
     @Column(name = "email", length = 75, nullable = false)
