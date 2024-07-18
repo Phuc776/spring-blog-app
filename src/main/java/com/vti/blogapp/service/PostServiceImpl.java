@@ -1,17 +1,14 @@
 package com.vti.blogapp.service;
 
 import com.vti.blogapp.dto.PostDto;
-import com.vti.blogapp.entity.Post;
 import com.vti.blogapp.form.PostCreateForm;
 import com.vti.blogapp.form.PostUpdateForm;
 import com.vti.blogapp.mapper.PostMapper;
 import com.vti.blogapp.repository.PostRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @AllArgsConstructor
 @Service
@@ -20,14 +17,9 @@ public class PostServiceImpl implements PostService{
 
 
     @Override
-    public List<PostDto> findAll() {
-        var posts = postRepository.findAll();
-        var dtos = new ArrayList<PostDto>();
-        for (Post post : posts) {
-            var dto = PostMapper.map(post);
-            dtos.add(dto);
-        }
-        return dtos;
+    public Page<PostDto> findAll(Pageable pageable) {
+        return postRepository.findAll(pageable) // Page<Post>
+                .map(PostMapper::map); // Page<PostDto>
     }
 
     @Override
@@ -35,8 +27,9 @@ public class PostServiceImpl implements PostService{
         return postRepository.findById(id)
                 .map(PostMapper::map)
                 .orElse(null);
+        // new Function
         // lambda
-        // method ref
+        // method ref (In Usage)
 
         // optional (Java 8)
     }

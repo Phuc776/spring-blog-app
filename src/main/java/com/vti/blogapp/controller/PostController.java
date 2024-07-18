@@ -6,18 +6,18 @@ import com.vti.blogapp.form.PostUpdateForm;
 import com.vti.blogapp.service.PostService;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 @AllArgsConstructor
 @RestController
 public class PostController {
     private PostService postService;
 
     @GetMapping("/api/v1/posts")
-    public List<PostDto> findAll() {
-        return postService.findAll();
+    public Page<PostDto> findAll(Pageable pageable) {
+        return postService.findAll(pageable);
     }
 
     @GetMapping("/api/v1/posts/{id}")

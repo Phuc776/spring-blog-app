@@ -11,22 +11,26 @@ public class PostMapper {
         post.setTitle(form.getTitle());
         post.setContent(form.getContent());
         post.setDescription(form.getDescription());
+        post.setStatus(form.getStatus());
         return post;
     }
 
-    public static void map(PostUpdateForm form, Post post) {
-        post.setTitle(form.getTitle());
-        post.setContent(form.getContent());
-        post.setDescription(form.getDescription());
-    }
     public static PostDto map(Post post) {
         var dto = new PostDto();
         dto.setId(post.getId());
         dto.setTitle(post.getTitle());
         dto.setContent(post.getContent());
         dto.setDescription(post.getDescription());
+        dto.setStatus(post.getStatus());
         dto.setCreatedAt(post.getCreatedAt());
         dto.setUpdatedAt(post.getUpdatedAt());
         return dto;
+    }
+
+    public static void map(PostUpdateForm form, Post post) {
+        post.setTitle(form.getTitle());
+        post.setContent(form.getContent());
+        post.setDescription(form.getDescription());
+        post.setStatus(form.getStatus());
     }
 }

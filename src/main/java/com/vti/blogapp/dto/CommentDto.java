@@ -1,18 +1,17 @@
 package com.vti.blogapp.dto;
 
-import com.vti.blogapp.entity.Post;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+
 @Getter
 @Setter
-public class PostDto {
+public class CommentDto {
     private Long id;
-    private String title;
-    private String content;
-    private String description;
-    private Post.Status status;
+    private String name;
+    private String email;
+    private String body;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }
