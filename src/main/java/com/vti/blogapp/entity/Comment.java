@@ -7,6 +7,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
+
 @Getter
 @Setter
 @Entity
@@ -14,16 +16,8 @@ import java.time.LocalDateTime;
 public class Comment {
     @Id
     @Column(name = "id")
-    @SequenceGenerator(
-            name = "comment_id_generator",
-            sequenceName = "comment_id_sequence",
-            initialValue = 99,
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "comment_id_sequence")
-    private Long id;
+    @GeneratedValue // = @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
     @Column(name = "name", length = 50, nullable = false)
     private String name;
