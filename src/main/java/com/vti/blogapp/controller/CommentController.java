@@ -9,8 +9,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.UUID;
-
 @RestController
 @AllArgsConstructor
 public class CommentController {
@@ -29,7 +27,7 @@ public class CommentController {
     }
 
     @GetMapping("/api/v1/comments/{id}")
-    public CommentDto findById(@PathVariable("id") UUID id) {
+    public CommentDto findById(@PathVariable("id") String id) {
         return commentService.findById(id);
     }
 
@@ -43,13 +41,13 @@ public class CommentController {
 
     @PutMapping("/api/v1/comments/{id}")
     public CommentDto update(
-            @PathVariable("id") UUID id,
+            @PathVariable("id") String id,
             @RequestBody CommentUpdateForm form
     ) {
         return commentService.update(id, form);
     }
     @DeleteMapping("/api/v1/comments/{id}")
-    public void deleteById(@PathVariable("id") UUID id) {
+    public void deleteById(@PathVariable("id") String id) {
         commentService.deleteById(id);
     }
 

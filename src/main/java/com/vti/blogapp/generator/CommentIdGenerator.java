@@ -6,8 +6,12 @@ import org.hibernate.id.IdentifierGenerator;
 public class CommentIdGenerator implements IdentifierGenerator {
 
     @Override
-    public Object generate(SharedSessionContractImplementor session, Object comment) {
+    public Object generate(
+            SharedSessionContractImplementor session,
+            Object comment
+    ) {
         var hql = "SELECT COUNT(*) FROM Comment";
+        // DTNxxxxx
         long count = session
                 .createSelectionQuery(hql, Long.class)
                 .uniqueResult();

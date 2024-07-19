@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 public interface CommentRepository
-        extends JpaRepository<Comment, UUID> {
+        extends JpaRepository<Comment, String> {
     // 1. method name
     // Prefix: findBy, existsBy, countBy, deleteBy
     // VD: Lấy ra tất cả comment theo name
