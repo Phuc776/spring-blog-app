@@ -42,8 +42,8 @@ public class Post {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    @ManyToMany(mappedBy = "posts")
-    private List<Comment> comments;
+    @OneToMany(mappedBy = "post")
+    private List<PostComment> postComments;
 
     public enum Status {
         OPENING, CLOSED
